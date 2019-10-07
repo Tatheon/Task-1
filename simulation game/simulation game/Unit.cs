@@ -68,7 +68,7 @@ namespace simulation_game
             }
         }
 
-        public void RandomMove()
+        public void RandomMove()//moves the unit in a random direction
         {
             int tryX;
             int tryY;
@@ -77,7 +77,7 @@ namespace simulation_game
             bool movable = false;
 
 
-            while (movable == false)
+            while (movable == false)//while the unit cannot move to the atempted position, a new position must be provided
             {
                 switch (r.Next(8))
                 {
@@ -118,7 +118,7 @@ namespace simulation_game
                         break;
                 }
 
-                if (CanMove(tryX, tryY))
+                if (CanMove(tryX, tryY))//if the unit can move to the coords then the unit will move there
                 {
                     movable = true;
                 }
@@ -127,7 +127,7 @@ namespace simulation_game
             Yvalue = tryY;
         }
 
-        public void Attack(Unit otherUnit)
+        public void Attack(Unit otherUnit)//method that attacks units
         {
             otherUnit.Health -= attack;
             isInAction = false;
@@ -138,17 +138,17 @@ namespace simulation_game
             }
         }
 
-        public bool CanMove(int x, int y)
+        public bool CanMove(int x, int y)//checks to see if the unit can move somewhere that will not be outside the map...because....out of bounds error......you know
         {
             bool clear = true;
-            if (x < 0 | x > 19 | y < 0 | y > 19)
+            if (x < 0 | x > 19 | y < 0 | y > 19)//parameters that are ILLEGAL
             {
                 clear = false;
             }
             return clear;
         }
 
-        public bool WithinRange()
+        public bool WithinRange()//checks if the closest unit is in range
         {
             double distance = 0;
             int Xdistance;
@@ -169,7 +169,7 @@ namespace simulation_game
 
         }
 
-        public void NearestEnemy(Unit[] units)
+        public void NearestEnemy(Unit[] units)//checks the avalile units to see which one is closest(excluding itself  LOL  )
         {
             closestDistance = int.MaxValue;
             closestUnit = null;
@@ -179,11 +179,11 @@ namespace simulation_game
                 double distance = 0;
                 int Xdistance;
                 int Ydistance;
-                if (unitFocus != this & unitFocus.Team != Team & unitFocus.IsDead == false)
+                if (unitFocus != this & unitFocus.Team != Team & unitFocus.IsDead == false)//if the unit is not itself, not in the same team and is alive then do a calculation
                 {
                     Xdistance = unitFocus.Xvalue - Xvalue;
                     Ydistance = unitFocus.Yvalue - Yvalue;
-                    distance = Math.Sqrt(Xdistance * Xdistance + Ydistance * Ydistance);
+                    distance = Math.Sqrt(Xdistance * Xdistance + Ydistance * Ydistance);//finds distance between the units
                     if (distance < closestDistance)
                     {
                         closestDistance = distance;
@@ -197,7 +197,7 @@ namespace simulation_game
             }
         }
 
-        public virtual void Kill()
+        public virtual void Kill()//it does exactly what it says
         {
             Symbol = "X";
             IsDead = true;
