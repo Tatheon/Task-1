@@ -28,19 +28,19 @@ namespace simulation_game
             {
                 if (r.Next(2) == 0)
                 {
-                    players[i] = new Ranged(r.Next(1, 20), r.Next(0, 20), teams[r.Next(2)]);
+                    players[i] = new Ranged(r.Next(1, 20), r.Next(0, 20), teams[r.Next(2)]);// make a Ranged Boi
 
                 }
                 else
                 {
-                    players[i] = new Melee(r.Next(1, 20), r.Next(0, 20), teams[r.Next(2)]);
+                    players[i] = new Melee(r.Next(1, 20), r.Next(0, 20), teams[r.Next(2)]);// make a melee Boi
                 }
             }
 
             UpdateWorld();
         }
 
-        public void UpdateWorld()
+        public void UpdateWorld()//update the map of any changes
         {
             for (int y = 0; y < 20; y++)
             {
