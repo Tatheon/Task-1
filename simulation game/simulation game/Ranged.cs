@@ -25,11 +25,11 @@ namespace simulation_game
         {
             if (Health <= 0)
             {
-                return "Ranged: DEAD";
+                return "Ranged: DEAD";//if dead
             }
             else
             {
-                return "Ranged unit \n Health: " + Health + "\n Range: " + attackRange + "\n Speed: " + speed + "\n Team: " + team;
+                return "Ranged unit: \n Health: " + Health + "\n Range: " + attackRange + "\n Speed: " + speed + "\n Team: " + team;//if alive show stats
             }
         }
     }
