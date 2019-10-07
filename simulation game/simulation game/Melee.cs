@@ -27,11 +27,11 @@ namespace simulation_game
         {
             if (Health <= 0)
             {
-                return "Melee: DEAD";
+                return "Melee: DEAD";//if dead
             }
             else
             {
-                return "Melee unit \n Health: " + Health + "\n Range: " + attackRange + "\n Speed: " + speed + "\n Team: " + team;
+                return "Melee unit: " + name + " \n Health: " + Health + "\n Range: " + attackRange + "\n Speed: " + speed + "\n Team: " + team;//if alive show stats
             }
 
         }
